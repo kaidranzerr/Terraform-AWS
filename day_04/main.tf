@@ -46,6 +46,19 @@ provider "aws" {
   region = "us-east-1"
 }
 
+# adding remote backend
+terraform {
+  backend "s3" {
+    bucket = "mybucket"
+    key = "dev.terraform.tfstate"
+    region = "us-east-1"
+    encrypt = true
+    # lock table is important for locking mechanism
+    # lock_table = "mybucket-terraform-lock" only when we are using dynamo db
+    use_lockfile = true
+  }
+}
+
 # create S3 bucket 
 resource "aws_s3_bucket" "first_bucket" {
     bucket = "techtuts1"
@@ -55,3 +68,9 @@ resource "aws_s3_bucket" "first_bucket" {
         Environment = "Dev"
     }
 }
+
+# terminal command --> tf init 
+# make sure the bucket is always available 
+
+# tf plan 
+# tf state show
