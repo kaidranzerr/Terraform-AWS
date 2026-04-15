@@ -27,3 +27,7 @@
 # Then uploaded back to S3
 
 # NOT directly edited in S3.
+
+# You DO NOT update the state file manually
+
+# 👉 Terraform updates it automatically after changing AWS
