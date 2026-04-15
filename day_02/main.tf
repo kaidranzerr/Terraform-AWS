@@ -32,3 +32,5 @@ terraform {
     }
   }
 }
+
+# first command --> tf init
