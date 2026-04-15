@@ -1,0 +1,1 @@
+# aws provider basic setup
